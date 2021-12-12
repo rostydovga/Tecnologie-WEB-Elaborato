@@ -1,0 +1,30 @@
+:root{
+    --bg-color:#000;
+    --font-color:#c7c7c7;
+    --gradient-bg-color:linear-gradient(to bottom left, #09203f, #537895);
+}
+
+
+.navbar{
+    background-color:var(--bg-color);    
+}
+
+.navbar-brand {
+    margin-left: 50px;
+    font-size: 2rem;
+    color:var(--font-color);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+.nav-link{
+    margin:0 10px 0 10px;
+    color:var(--font-color);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-link:hover, .navbar-brand:hover{
+    /*margin:0 10px 0 10px;*/
+    color:#fff;
+}
