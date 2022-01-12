@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fragrances C&D</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="shortcut icon" href="../img/logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Corinthia&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <div class="offcanvas offcanvas-end" id="offcanvas-cart">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Cart</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>1-Elemento nel carrello</p>
+          <p>2-Elemento nel carrello</p>
+          <p>3-Elemento nel carrello</p>
+          <button class="btn btn-primary bg-dark " type="button">Pahaaa</button>
+        </div>
+      </div>
+    
+      <nav class="navbar navbar-expand-lg py-4 navbar-dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex justify-content-between align-items-center order-lgs-0">C&D</a>
+    
+            
+    
+            <div class="order-lg-2 nav-btns">
+              <!--
+              <button type="button " class="btn position-relative">
+                    <i class="bi bi-bell"></i>
+                    <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                </button>
+              -->
+                <span class="dropdown">
+                  <button class="btn position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-bell"></i>
+                    <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><p class="dropdown-item" >Notifica-1</p></li>
+                    <li><p class="dropdown-item" >Notifica-2</p></li>
+                    <li><p class="dropdown-item" >Notifica-3</p></li>
+                  </ul>
+                </span>
+               
+                <button type="button" class="btn position-relative">
+                    <i class="bi bi-person"></i>
+                    <span class="position-relative top-10 start-15  translate-middle badge bg-primary"></span>
+                </button>
+                <button type="button" class="btn position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                </button>
+                
+            </div>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-lgs-1" id="navMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item px-1 py-2">
+                        <a class="nav-link" href="fragrances.html">Fragrances</a>
+                      </li>
+                      <li class="nav-item px-1 py-2">
+                        <a class="nav-link" href="#">Bundles</a>
+                      </li>
+                      <li class="nav-item px-1 py-2 border-0">
+                        <a class="nav-link" href="#" >About us</a>
+                      </li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+    
+      
+
+
+    
+      <div class="container p-0">
+        
+        <div class="row">
+            <div class="col-lg-2 mt-5">
+                <aside class="bg-light pb-5 pt-3 px-2">
+                    <header>
+                        <h2>Filter products</h2>
+                    </header>
+                    <section class="mt-3">
+                        <h3>Category</h3>
+                        <ul>
+                            <li>
+                                <input type="checkbox" name="profumo" id="profumo" value="profumo" />
+                                <label for="profumo">Perfume</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="deodorante" id="deodorante" value="deodorante" />
+                                <label for="deodorante">Deodorant</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="candela" id="candela" value="candela" />
+                                <label for="candela">Candle</label>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="mt-3">
+                        <h3>Gender</h3>
+                        <ul>
+                            <li>
+                                <input type="checkbox" name="uomo" id="uomo" value="uomo" />
+                                <label for="uomo">Male</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="donna" id="donna" value="donna" />
+                                <label for="donna">Female</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="unisex" id="unisex" value="unisex" />
+                                <label for="unisex">Unisex</label>
+                            </li>
+                        </ul>
+                    </section>
+                    <!--<section>
+                        <h3>Ordina per</h3>
+                        <div class="row mb-2">
+                            <input type="checkbox" name="prezzo" id="prezzo" />
+                            <label for="prezzo">Prezzo</label>
+                        </div>
+                        <div class="row">
+                            <input type="checkbox" name="quantmag" id="quantmag" class="" />
+                            <label for="quantmag">Q.t&aacute; in magazzino</label>
+                        </div>
+                    </section>-->
+                </aside>
+            </div>
+            <div class="col-lg-10 product">
+                <div class="row">
+                    <div class="col-lg-12 mt-5">
+                        <h2>Our Products</h2>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/polo.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <hr/>
+                            <h3>Polo Ralph Lauren</h3>
+                            <p>55€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/one.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <hr/>
+                            <h3>One Million</h3>
+                            <p>70€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/alien.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <hr/>
+                            <h3>Alien</h3>
+                            <p>60€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/gucci.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <hr/>
+                            <h3>Gucci Guilty</h3>
+                            <p>50€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/polo.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <hr/>
+                            <h3>Polo Ralph Lauren</h3>
+                            <p>55€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/one.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>One Million</h3>
+                            <p>70€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/alien.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>Alien</h3>
+                            <p>60€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/gucci.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>Gucci Guilty</h3>
+                            <p>50€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/polo.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>Polo Ralph Lauren</h3>
+                            <p>55€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/one.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>One Million</h3>
+                            <p>70€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/alien.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>Alien</h3>
+                            <p>60€</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 mb-2">
+                            <div class="card-body">
+                                <a href="prodotto.html"><img src="../img/products/gucci.jpg" alt="" class="img-fluid" /></a>
+                            </div>
+                            <h3>Gucci Guilty</h3>
+                            <p>50€</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    
+    <footer class="text-center text-white" >
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="bi bi-facebook"></i></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="bi bi-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-link btn-floating btn-lg m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="bi bi-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg m-1"
+              href="#!"
+              role="button"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" >
+          © 2022 Copyright:
+          <a class="" href="index.html">C&D</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      
+
+</body>
+</html>    

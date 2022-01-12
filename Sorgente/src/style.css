@@ -1,9 +1,102 @@
 :root{
     --bg-color:#000;
     --font-color:#c7c7c7;
+    --notification-color:#e5345b;
     --gradient-bg-color:linear-gradient(to bottom left, #09203f, #537895);
 }
 
+div>article>header>h1, section h2, h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+}
+
+article>section>ul>li>h2, .product h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    /*font-weight: bold;*/
+    margin: 3px 0;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.product hr{
+    width: 25%;
+    margin: auto;
+    margin-bottom: 5px;
+    transition: 0.7s;
+    opacity: 0.3;
+}
+
+.product .btn{
+    
+    margin: auto;
+    margin-top: 10px;
+    width: 19%;
+    text-transform: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 10px 15px;
+    transition: 0.5s;
+}
+
+.product .btn:hover{
+    background-color: var(--bg-color);
+    width: 23%;
+    transition: 0.5s;
+}
+
+/*Aggiungi le media query per il bottone*/
+@media screen and (max-width: 992px){
+    .product .btn{
+        margin: auto;
+        margin-top: 10px;
+        width: 40%;
+        text-transform: none;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 20px;
+        border-radius: 30px;
+        padding: 10px 15px;
+        transition: 0.5s;
+    }
+
+    .product .btn:hover{
+        background-color: var(--bg-color);
+        width: 50%;
+        transition: 0.5s;
+    }
+    
+}
+
+
+article>section>ul>li>p, .product p {
+    text-align: center;
+    font-size: 15px;
+}
+
+ul>li>a>img, ul>li>img, .card-body img {
+    height: 200px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+a{
+    text-decoration: none;
+}
+
+article>section>ul>li{
+    margin: 15px 0 0 0;
+}
+
+
+ul {
+    list-style: none;
+}
 
 .navbar{
     background-color:var(--bg-color);    
@@ -12,19 +105,410 @@
 .navbar-brand {
     margin-left: 50px;
     font-size: 2rem;
-    color:var(--font-color);
+    color:var(--font-color) !important;
     font-family: 'Cormorant Garamond', serif;
 }
 
 
-.nav-link{
+.nav-link, .btn{
     margin:0 10px 0 10px;
     color:var(--font-color);
     text-transform: uppercase;
     text-decoration: none;
 }
 
-.nav-link:hover, .navbar-brand:hover{
-    /*margin:0 10px 0 10px;*/
+.nav-link:hover, .navbar-brand:hover, .btn:hover{
+    color:#fff !important;
+}
+
+.navbar-toggler-icon:hover{
     color:#fff;
 }
+
+nav div{
+    float: left;
+    clear: both;
+}
+
+.bg-primary{
+    background-color: var(--notification-color) !important;
+}
+
+.rounded-circle{
+    margin: 30% 0 0 70%;
+    border: 0.1px solid var(--font-color);
+}
+
+.navbar{
+    box-shadow: 0 3px 9px 3px rgba(78, 78, 78, 0.1);
+}
+
+.nav-item{
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.378);
+}
+
+@media screen and (min-width: 992px){
+    .nav-item{
+        border-bottom: none;
+    }    
+}
+
+@media screen and (max-width: 720px){
+    article>section>ul>li {
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+}
+
+
+.carousel-inner, #carousel{
+    height: 50%;
+    width: 100%;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin: -0.125rem 0 0;
+}
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+
+article{
+    margin: 40px;
+}
+
+
+footer{
+    margin-top: 10rem;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+footer>div>section>h2{
+    /*font-family: 'Cormorant Garamond', serif;*/
+    font-size: 20px;
+    color: var(--font-color);
+}
+
+footer>div a{
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+article>section>ul>li {
+    transition: all 0.5s ease;
+}
+
+article>section>ul>li:hover {
+    transform:scale(0.90);
+}
+
+.product .card{
+    border: 1px solid #000000 !important;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+
+.product .card:hover{
+    box-shadow: 0px 0px 17px 4px rgba(0,0,0,0.66);
+    border: 1px solid #dfdfdf !important;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+/*Login.html*/
+section{
+    margin-top: 15px;
+}
+
+.img-left{
+    width: 45%;
+    background: url('../img/Carusel1.jpg') center;
+    background-size: cover;
+}
+
+
+.card-body{
+    padding: 2rem;
+}
+
+
+/*arrotondare la card, anche quella della registrazione*/
+section>.container .card, section>.container-fluid .card{
+    border: 1px solid #000000 !important;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.title{
+    margin-bottom: 2rem;
+}
+
+.form-input{
+    position: relative;
+}
+
+.form-input input{
+    width: 100%;
+    height:45px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+}
+
+/*form della Registrazione*/
+.form-outline input{
+    width: 100%;
+    height:45px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+    font-size: inherit;
+}
+
+/*Modifica dei link delle pagine di Registrazione e Login*/
+section .card>.card-body p>a{
+    color: #000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.form-input span{
+    position: absolute;
+    top: 10px;
+    padding-left: 15px;
+    color: rgba(0,0,0,0.8);
+}
+
+.form-input input:focus, .form-input input:valid, .form-outline input:focus, .form-outline input:valid{
+    border: 2px solid var(--bg-color);
+}
+
+
+section .card-body .btn{
+    width: 75%;
+    margin-top: 10px;
+    border-radius: 50px;
+    color: var(--font-color);
+    font-size: 90%;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+section .card-body .btn:hover{
+    width: 90%;
+    background: rgba(0,0,0,1) important;
+}
+
+/*Fragrances*/
+aside>section>h3 {
+    font-size: 25px;
+}
+
+aside section>h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+aside>header>h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+aside section>ul{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container > .row > div> h2{
+    margin-left: 17%;
+}
+
+/*Carrello - offcanvas*/
+.offcanvas .offcanvas-title{
+    padding-left: 5%;
+}
+
+/*Eliminare per l'idea #3*/
+/*
+.offcanvas .card{
+    margin: 10px 2%;
+    border: 1px solid #000000 !important;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+}
+
+.offcanvas .card:hover{
+    box-shadow: 0px 0px 17px 4px rgba(0,0,0,0.66);
+    border: 1px solid #dfdfdf !important;
+    transition: 0.5s;
+}
+*/
+.offcanvas .card img{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 2%;
+    height: 100px;
+}
+
+.offcanvas .card h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 5px 0;
+    padding-top: 5px;
+}
+
+.offcanvas .card>.card-body hr{
+    width: 90%;
+    margin: 0;
+    margin-bottom: 10px;
+    background-color: rgba(82, 77, 77, 0.384);
+}
+
+
+.offcanvas .card > .card-body{
+    margin-left: 20%;
+    padding: 0;
+}
+
+/*
+.offcanvas .offcanvas-body .card-body p:nth-child(3){
+    font-size: 13px;
+    color: rgba(0,0,0,0.6);
+    margin-bottom: 5px;
+}
+*/
+/* se non ce il trash
+.offcanvas .offcanvas-body .card-body p:nth-child(4){
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.8);
+}
+*/
+
+/*IDEA 2 prodotto nel carrello --- va bene anche per l'idea #3*/
+
+.offcanvas .offcanvas-body .card-body .row>.col>.input-group{
+    width: 80%;
+}
+
+.offcanvas .offcanvas-body .card-body .row>.col>.input-group>input{
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.offcanvas .offcanvas-body .card-body .row>.col p{
+    /*IDEA #3*/
+    text-align: right;
+    padding-right: 15%;
+    /**/
+    padding-top: 15px;
+}
+
+
+.offcanvas .offcanvas-body .card-body .row>.col{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.8);
+}
+
+/*card per l'idea #3*/
+.offcanvas .card{
+    margin: 10px 2%;
+    overflow: hidden;
+    border: 0;
+}
+
+.offcanvas .offcanvas-body>hr{
+    width: 80%;
+    margin: auto;
+    margin: 10px auto;
+}
+
+/*icona del cestino*/
+.offcanvas .offcanvas-body i {
+    width: 35px;
+    font-size: 18px;
+    float: right;
+}
+
+.offcanvas footer{
+    margin-top:auto;
+    margin-bottom: 50px;
+}
+
+.offcanvas footer hr{
+    width: 85%;
+    margin: auto;
+}
+
+.offcanvas footer{
+    background: none;
+    color: #000;
+    
+}
+
+.offcanvas>footer>.row>.col {
+    padding-top: 20px;
+    margin-bottom: 10px;  
+}
+
+.offcanvas footer .row .col:first-child p{
+    font-size: 20px;
+    text-align: left;
+    padding-left: 10%;
+}
+
+.offcanvas footer .row .col:last-child p{
+    font-size: 20px;
+    text-align: right;
+    padding-right: 10%;
+}
+
+
+.offcanvas>footer button{
+    width: 50%;
+    margin: auto;
+    border-radius: 30px;
+    padding: 8px 10%;
+    text-transform: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    transition: 0.5s;
+}
+
+.offcanvas>footer button:hover{
+    background-color: var(--bg-color);
+    width: 55%;
+    transition: 0.5s;
+}
+
+
+/*Pagina registrazione*/
+.img-right{
+    width: 50%;
+    background: url(../img/img_registration.jpg) local;
+    background-size: 300%;
+    background-position: 48% 19%;
+}
+
