@@ -46,4 +46,17 @@ $(document).ready(function(){
         });*/
       });
 
+
+      /*Fragrance.html*/
+      //Se vien scelto il checkbox della candela non permettere il click sui check Gender
+    $("aside section #candela").click(function(){
+        gestisi_Gender($(this).prop("checked"));
+    });
+
+    function gestisi_Gender(manage){
+        $("aside section #uomo,#donna,#unisex").prop("checked",manage);
+        $("aside section #uomo,#donna,#unisex").attr("disabled", manage);
+    }
+
+
 });
