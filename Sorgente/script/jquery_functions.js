@@ -15,6 +15,10 @@ $(document).ready(function(){
 
     });
 
+    $("[type='number']").keydown(function(evt){
+        evt.preventDefault();
+    });
+
 
     /*modifica hr con passaggio del mouse per i prodotti*/
     $("section.product .card").hover(function(){
@@ -49,7 +53,9 @@ $(document).ready(function(){
 
       /*Fragrance.html*/
       //Se vien scelto il checkbox della candela non permettere il click sui check Gender
-    $("aside section #candela").click(function(){
+    /*
+      $("aside section #candela").click(function(){
+        console.log("Click check");
         gestisi_Gender($(this).prop("checked"));
     });
 
@@ -57,6 +63,6 @@ $(document).ready(function(){
         $("aside section #uomo,#donna,#unisex").prop("checked",manage);
         $("aside section #uomo,#donna,#unisex").attr("disabled", manage);
     }
-
+    */
 
 });
