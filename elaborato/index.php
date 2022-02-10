@@ -2,10 +2,10 @@
 
     require_once("bootstrap.php");
 
-    //includere Bootstrap
-
     //Logica
     $templateParams["titolo"] = "C&D Home";
+    $templateParams["nome"] = "home.php";
+    $templateParams["navbarFixed"] = "fixed-top";
     $templateParams["prodotticasuali"] = $dbh->getRandomProducts(); 
 
     $templateParams["prodotti"] = $dbh->getProducts();

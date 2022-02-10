@@ -272,7 +272,7 @@ section {
 
 .img-left {
     width: 45%;
-    background: url('../img/Carusel1.jpg') center;
+    background: url('../upload/Carusel1.jpg') center;
     background-size: cover;
 }
 
@@ -570,7 +570,7 @@ aside section>ul {
 
 .img-right {
     width: 50%;
-    background: url(../img/img_registration.jpg) local;
+    background: url(../upload/img_registration.jpg) local;
     background-size: 300%;
     background-position: 48% 19%;
 }
