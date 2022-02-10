@@ -2,8 +2,15 @@
 
     require_once("bootstrap.php");
 
+    
     //estrarre l'id del prodotto dal URL
     $idProduct = $_GET["id"];
+
+    if(isset($_POST["aggiungialcarrello"])) {
+        
+    }
+    
+
     
     //cercarlo nel DB 
     $templateParams["infoProdotto"] = $dbh->getProductInfo($idProduct);

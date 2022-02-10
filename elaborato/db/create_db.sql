@@ -6,7 +6,8 @@ create table UTENTI (
      Nome varchar(20) not null,
      Cognome varchar(25) not null,
      Email varchar(30) not null,
-     Pwd varchar(30) not null);
+     Pwd varchar(30) not null,
+     Venditore boolean);
 
 create table CARRELLI (
      IdCliente int,

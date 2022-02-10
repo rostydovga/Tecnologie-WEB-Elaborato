@@ -42,6 +42,15 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getCategories() {
+            $query = "SELECT IdCategoria, Nome FROM categorie";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
         /*Richiedo le informazioni di un prodotto dato il suo id*/
         public function getProductInfo($id){
             $query = "SELECT IdProdotto, p.Nome as NomeProdotto, Ml, Prezzo, Descrizione, Quantita, Sesso, Immagine, c.Nome as Categoria, Quantita FROM prodotti p, categorie c WHERE KCategoria=IdCategoria AND IdProdotto=?";
@@ -85,7 +94,6 @@
             
             //$result = $stmt->get_result();
         }
-        
     }
 
 ?>

@@ -14,20 +14,22 @@
                 <h3><?php echo $templateParams["infoProdotto"]["Categoria"]; 
                 echo isset($templateParams["infoProdotto"]["Sesso"]) ? ($templateParams["infoProdotto"]["Sesso"]=="f" ? " - Female" : ($templateParams["infoProdotto"]["Sesso"]=="m" ? " - Male" : " - Unisex") ) : "" ; ?></h3>
             </header>
-            <section>
-                <div class="row row-cols-2">
-                    <p><?php echo $templateParams["infoProdotto"]["Ml"]." ml" ?></p>
-                    <p><?php echo "€ ".$templateParams["infoProdotto"]["Prezzo"] ?> </p>
+            <form action="product.php?<?php echo "id=".$templateParams["infoProdotto"]["IdProdotto"]; ?>" method="POST"  >
+                <section>
+                    <div class="row row-cols-2">
+                        <p><?php echo $templateParams["infoProdotto"]["Ml"]." ml" ?></p>
+                        <p><?php echo "€ ".$templateParams["infoProdotto"]["Prezzo"] ?> </p>
+                    </div>
+                    <hr/>
+                    <div class="input-group">
+                        <label for="prodQuantity">Quantity:</label>
+                        <input id="prodQuantity" type="number" class="form-control" value="1" min="1" max="<?php echo $templateParams["infoProdotto"]["Quantita"] ?>" />
+                    </div>
+                </section>
+                <div class="row">
+                    <button class="btn bg-dark"  name="aggiungialcarrello" type="submit">Add to Cart <i class="bi bi-cart"></i></button>
                 </div>
-                <hr/>
-                <div class="input-group">
-                    <label for="prodQuantity">Quantity:</label>
-                    <input id="prodQuantity" type="number" class="form-control" value="1" min="1" max="<?php echo $templateParams["infoProdotto"]["Quantita"] ?>" />
-                </div>
-            </section>
-            <div class="row">
-                <button class="btn bg-dark" type="button">Add to Cart <i class="bi bi-cart"></i></button>
-            </div>
+                </form>
         </div>
 
 

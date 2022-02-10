@@ -19,6 +19,8 @@
     <!--Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="script/jquery_functions.js"></script>
+    <script src="script/addCart.js"></script>
+
 </head>
 
 <body>
@@ -102,7 +104,7 @@
     </div>
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg py-4 <?php echo $templateParams["navbarFixed"]; ?> navbar-dark">
+    <nav class="navbar navbar-expand-lg py-4 <?php echo isset($templateParams["navbarFixed"]) ? $templateParams["navbarFixed"]:""; ?> navbar-dark">
         <div class="container">
             <header>
                 <a href="index.php" class="navbar-brand d-flex justify-content-between align-items-center order-lgs-0">
@@ -135,7 +137,9 @@
                 </a>
                 <button type="button" class="btn position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
                 <i class="bi bi-cart"></i>
+                <?php if(!$carrello->isEmpty()): ?>
                 <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                <?php endif; ?>
             </button>
             </div>
             <!--Per la compressione della pagina-->
@@ -145,7 +149,7 @@
             <div class="collapse navbar-collapse order-lgs-1" id="navMenu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item px-1 py-2">
-                        <a class="nav-link" href="fragrances.html">Fragrances</a>
+                        <a class="nav-link" href="fragrances.php">Fragrances</a>
                     </li>
                     <li class="nav-item px-1 py-2">
                         <a class="nav-link" href="#">Bundles</a>

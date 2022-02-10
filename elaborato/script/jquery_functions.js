@@ -10,7 +10,6 @@ $(document).ready(function(){
         if(qty<1){
             $(card_items).fadeOut("slow","swing");
             $(divisor).fadeOut("slow","swing");
-
         }
 
     });
@@ -64,5 +63,8 @@ $(document).ready(function(){
         $("aside section #uomo,#donna,#unisex").attr("disabled", manage);
     }
     */
+
+    
+    
 
 });
