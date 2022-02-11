@@ -58,7 +58,7 @@
         <?php endforeach; ?>
         </div>
             <div class="row text-center">
-                <a class="btn btn-block bg-dark" type="submit" href="#">
+                <a class="btn btn-block bg-dark" type="submit" href="fragrances.php">
             View Products
         </a>
             </div>

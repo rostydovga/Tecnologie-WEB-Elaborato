@@ -16,4 +16,11 @@
         $_SESSION["Cognome"] = $user["Cognome"];
     }
 
+    function logOutUser(){
+        $_SESSION["IdUtente"] = NULL;
+        $_SESSION["Nome"] = NULL;
+        $_SESSION["Cognome"] = null;
+        session_destroy();
+    }
+
 ?>

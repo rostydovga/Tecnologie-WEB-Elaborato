@@ -20,7 +20,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="script/jquery_functions.js"></script>
     <script src="script/addCart.js"></script>
-
+    <script src="script/registrationjs.js"></script>
+    <script src="script/login-home.js"></script>
 </head>
 
 <body>

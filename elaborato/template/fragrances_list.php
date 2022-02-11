@@ -61,7 +61,7 @@
             <div class="col-lg-3 text-center">
                 <div class="card border-0 mb-2">
                     <div class="card-body">
-                        <a href="prodotto.html"><img src="<?php echo UPLOAD_DIR.$templateParams["prodotti"][$i]["Immagine"]; ?>" alt="" class="img-fluid" /></a>
+                        <a href="product.php?id=<?php echo $templateParams["prodotti"][$i]["IdProdotto"] ?>"><img src="<?php echo UPLOAD_DIR.$templateParams["prodotti"][$i]["Immagine"]; ?>" alt="" class="img-fluid" /></a>
                     </div>
                     <hr/>
                     <h3><?php echo $templateParams["prodotti"][$i]["Nome"]; ?></h3>

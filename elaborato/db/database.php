@@ -73,6 +73,16 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function isAdmin($id){
+            $query = "SELECT IdUtente, Admin FROM utenti WHERE IdUtente=? AND Admin=1";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i",$id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
         /*Controllo che l'email inserita non esista gia */
         public function checkEmailExisting($email){
             $query = "SELECT Email FROM utenti WHERE Email=? ";

@@ -1,10 +1,11 @@
 <?php
+    session_start();
     //variabili di connessione al db
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "cddb";
-    $port = 3307;
+    $port = 3306;
 
     //includere file per connessione DB
     require_once("db/database.php");

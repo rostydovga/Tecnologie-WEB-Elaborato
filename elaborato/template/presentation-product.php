@@ -59,7 +59,7 @@
                 <div class="col-lg-3 text-center">
                     <div class="card border-0 mb-2">
                         <div class="card-body">
-                            <a href="prodotto.html">
+                            <a href="product.php?id=<?php echo $prodotto["IdProdotto"] ?>">
                                 <img src="<?php echo UPLOAD_DIR.$prodotto["Immagine"] ?>" alt="<?php echo $prodotto["Immagine"] ?>" class="img-fluid " />
                             </a>
                         </div>

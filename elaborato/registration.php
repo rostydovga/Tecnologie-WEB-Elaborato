@@ -17,10 +17,10 @@
             $templateParams["on-close"] = "index.php";
             $templateParams["on-ok"] = "login.php";    
         }
-        
+        $templateParams["utente_registrato"] = 1;    
     }
-
-    //$templateParams["utente_registrato"] = 1;
+    
+    
     $templateParams["titolo"] = "C&D Registration";
     $templateParams["nome"] = "registration-form.php";
     $templateParams["navbarFixed"] = "";
