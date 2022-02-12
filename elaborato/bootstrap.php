@@ -13,8 +13,8 @@
     require_once("cart.php");
     //istanziare helper per DB
     $dbh = new DatabaseHelper($servername, $username, $password, $dbname, $port);
-    $carrello = new Carrello();
-
+    $carrello = new Carrello($dbh);
+    
     //inserimento di costanti
     define("UPLOAD_DIR","./upload/products/");
 

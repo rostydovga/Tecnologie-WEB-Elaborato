@@ -14,7 +14,11 @@
                 <h3><?php echo $templateParams["infoProdotto"]["Categoria"]; 
                 echo isset($templateParams["infoProdotto"]["Sesso"]) ? ($templateParams["infoProdotto"]["Sesso"]=="f" ? " - Female" : ($templateParams["infoProdotto"]["Sesso"]=="m" ? " - Male" : " - Unisex") ) : "" ; ?></h3>
             </header>
-            <form action="product.php?<?php echo "id=".$templateParams["infoProdotto"]["IdProdotto"]; ?>" method="POST"  >
+            <?php if(isset($_SESSION["IdUtente"])): ?>
+            <form action="product.php?<?php echo "id=".$templateParams["infoProdotto"]["IdProdotto"]; ?>" method="POST" >
+            <?php else: ?>
+            <form action="login.php" method="POST" >
+            <?php endif; ?>
                 <section>
                     <div class="row row-cols-2">
                         <p><?php echo $templateParams["infoProdotto"]["Ml"]." ml" ?></p>
@@ -23,7 +27,7 @@
                     <hr/>
                     <div class="input-group">
                         <label for="prodQuantity">Quantity:</label>
-                        <input id="prodQuantity" type="number" class="form-control" value="1" min="1" max="<?php echo $templateParams["infoProdotto"]["Quantita"] ?>" />
+                        <input id="prodQuantity" type="number" name="prodQuantity" class="form-control" value="1" min="1" max="<?php echo $templateParams["infoProdotto"]["Quantita"] ?>" />
                     </div>
                 </section>
                 <div class="row">

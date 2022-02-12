@@ -102,8 +102,73 @@
             $stmt->bind_param("ssss",$nome, $cognome, $email, $password);
             $stmt->execute();
             
-            //$result = $stmt->get_result();
         }
+/******************************************************** */
+        /*Controlla se un dato prodotto e nel carrello del cliente*/
+        private function isProductInCart($idProdotto, $idUtente){
+            $query = "SELECT Quantita FROM contiene_prodotti WHERE KCliente=? AND KProdotto=? ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ii",$idUtente,$idProdotto);
+            $stmt->execute();
+            $result = $stmt->get_result()->fetch_assoc();
+
+            return $result==NULL ? 0 : $result["Quantita"];
+        }
+
+/******************************************************** */
+        /*Aggiunta elemento al carrello dall'utente*/
+        public function addProductToCart($idProdotto, $idUtente,$quantita){
+
+            $current_quantity = $this->isProductInCart($idProdotto, $idUtente);
+            //se il prodotto e gia presente modifico solo la quantita
+            if($current_quantity>0){
+                $query = "UPDATE contiene_prodotti SET Quantita=? WHERE KProdotto=? and KCliente=?";
+                $quantita=$current_quantity+$quantita;
+            }else{
+                $query = "INSERT INTO contiene_prodotti(Quantita,KProdotto,KCliente) value (?,?,?)";
+            }
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iii",$quantita,$idProdotto, $idUtente);
+            $stmt->execute();
+
+        }
+
+/******************************************************** */
+        public function removeProductFromcart($idProdotto, $idUtente){
+            $current_quantity = $this->isProductInCart($idProdotto, $idUtente);
+            $current_quantity-=1;
+
+            //rimuovo un elemento alla volta -> quantita--
+            if($current_quantity>0){
+                $query = "UPDATE contiene_prodotti SET Quantita=? WHERE KProdotto=? and KCliente=?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("iii",$quantita,$idProdotto, $idUtente);
+            }elseif($current_quantity==0){ //se arrivo a 0 lo elimino definitivamente
+                $query = "DELETE FROM contiene_prodotti WHERE KProdotto=? and KCliente=?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("ii",$idProdotto, $idUtente);
+            }
+
+            $stmt->execute();
+
+        }
+
+/******************************************************** */
+        /*Controllo se il carrello e vuoto*/
+        public function isCartEmpty($idUtente){
+            $query = "SELECT KProdotto FROM contiene_prodotti WHERE KCliente=? ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i",$idUtente);
+            $stmt->execute();
+            $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+            return count($result) > 0 ? false : true;
+        }
+        
+
+
+
     }
 
 ?>

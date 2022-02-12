@@ -152,9 +152,6 @@
                     <li class="nav-item px-1 py-2">
                         <a class="nav-link" href="fragrances.php">Fragrances</a>
                     </li>
-                    <li class="nav-item px-1 py-2">
-                        <a class="nav-link" href="#">Bundles</a>
-                    </li>
                     <li class="nav-item px-1 py-2 border-0">
                         <a class="nav-link" href="#">About us</a>
                     </li>

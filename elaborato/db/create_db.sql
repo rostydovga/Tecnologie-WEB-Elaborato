@@ -61,13 +61,13 @@ create table CONTIENE_PRODOTTI (
      KCliente int,
      KOrdine int,
      Quantita int not null,
-     primary key (KProdotto, KCliente, KOrdine),
+     primary key (KProdotto, KCliente),/*, KOrdine),*/
      foreign key (KProdotto) references PRODOTTI (IdProdotto)
           on delete no action
           on update no action,
-     foreign key (KCliente, KOrdine) references CARRELLI (IdCliente, NumeroOrdine)
+     /*foreign key (KCliente, KOrdine) references CARRELLI (IdCliente, NumeroOrdine)
           on delete cascade
-          on update no action);
+          on update no action*/);
 
 create table CONTIENE_BUNDLE (
      KBundle int,
