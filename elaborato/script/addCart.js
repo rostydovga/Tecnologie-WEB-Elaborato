@@ -1,13 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    /*
+        $("#logoutButton").click(function() {
 
-    $("#addCartButton").click(function() {
-        console.log("ciao");
-        
-        $.ajax({
-            type: "GET",
-            data: "nome=figa$cognome=cavallini"
+            console.log("LogoutCliccato");
+            confirmation = false;
+            $.post("login.php", { "action": "logout" },
+                function(response) {
+                    alert("Logout successfully");
+
+                });
+            console.log("FUori richiesta POST");
+
         });
+*/
 
-    });
 
 });

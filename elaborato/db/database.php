@@ -53,7 +53,7 @@
 
         /*Richiedo le informazioni di un prodotto dato il suo id*/
         public function getProductInfo($id){
-            $query = "SELECT IdProdotto, p.Nome as NomeProdotto, Ml, Prezzo, Descrizione, Quantita, Sesso, Immagine, c.Nome as Categoria, Quantita FROM prodotti p, categorie c WHERE KCategoria=IdCategoria AND IdProdotto=?";
+            $query = "SELECT IdProdotto, p.Nome as NomeProdotto, Ml, Prezzo, Descrizione, Quantita, Sesso, Immagine, KCategoria, c.Nome as Categoria, Quantita FROM prodotti p, categorie c WHERE KCategoria=IdCategoria AND IdProdotto=?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("i",$id);
             $stmt->execute();
@@ -166,7 +166,15 @@
             return count($result) > 0 ? false : true;
         }
         
+        public function modifyProduct($idProdotto,$nome,$categoria,$prezzo,$quantita,$descrizione,$sesso){
+            $query = "UPDATE prodotti 
+            SET Nome=?, Prezzo=?, KCategoria=?, Quantita=?, Descrizione=?, DataInserimento=CURDATE(), Sesso=?
+            WHERE IdProdotto=?";
 
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("sdiissi",$nome,$prezzo,$categoria,$quantita,$descrizione,$sesso,$idProdotto);
+            $stmt->execute();
+        }
 
 
     }

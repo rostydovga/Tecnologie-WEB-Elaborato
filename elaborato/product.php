@@ -18,9 +18,14 @@
         $quantita = $_POST["prodQuantity"];
         
         $carrello->addProduct($idProduct,$idUtente,$quantita);
-        
     }
     //}
+
+    if(isset($_POST["modifyProduct"])){
+        $templateParams["titolo"] = "C&D Modify Product";
+        $templateParams["header"] = "Modify";
+        $templateParams["nome"] = "manage.php";
+    }
 
     
 
@@ -28,9 +33,9 @@
     
     //cercarlo nel DB 
     $templateParams["infoProdotto"] = $dbh->getProductInfo($idProduct);
-
+    $templateParams["categorie"] = $dbh->getCategories();
     $templateParams["prodotticasuali"] = $dbh->getRandomProducts();
-    $templateParams["navbarFixed"] = "";
+
 
     //Presentazione
     require_once("template/base.php");

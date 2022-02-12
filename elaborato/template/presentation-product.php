@@ -31,7 +31,16 @@
                     </div>
                 </section>
                 <div class="row">
-                    <button class="btn bg-dark"  name="aggiungialcarrello" type="submit">Add to Cart <i class="bi bi-cart"></i></button>
+                    <?php if(isset($_SESSION["IdUtente"]) && count($dbh->isAdmin($_SESSION["IdUtente"]))): ?>
+                    <div class="col-12 col-md-6 text-center">
+                        <button href="manage-products.php" name="modifyProduct" class="btn btn-block bg-dark " type="submit">Modify Products</button>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <button href="" class="btn btn-block bg-dark " type="submit">Delete Products</button>
+                    </div>
+                    <?php else: ?>
+                        <button class="btn bg-dark"  name="aggiungialcarrello" type="submit">Add to Cart <i class="bi bi-cart"></i></button>
+                    <?php endif ?>    
                 </div>
                 </form>
         </div>

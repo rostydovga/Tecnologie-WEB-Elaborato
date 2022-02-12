@@ -4,19 +4,11 @@
 </div>
 <section class="container mt-5">
     <?php if($templateParams["isAdmin"]): ?>
-
         <div class="row mt-5">
-            <div class="col-12 col-md-4 text-center">
-                <a href="" class="btn btn-block bg-dark " type="submit">Modify Products</a>
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <a href="" class="btn btn-block bg-dark " type="submit">Add Products</a>
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <a href="" class="btn btn-block bg-dark " type="submit">Delete Products</a>
+            <div class="text-center">
+                <a href="manage-products.php" class="btn btn-block bg-dark " type="submit">Add Products</a>
             </div>
         </div>
-
     <?php else :  ?>
     <div class="row mt-5">
         <header>
