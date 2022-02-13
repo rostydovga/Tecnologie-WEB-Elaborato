@@ -14,11 +14,7 @@
         $centronotifiche->addMessage($_SESSION["IdUtente"], "product (name: ".$_POST["nome"].", id: ".$_GET["id"].") modified successfully.");
     }
 
-    if(isset($_POST["ordinamento"])) {
-        $templateParams["prodotti"] = $dbh->orderProducts($_POST["ordinamento"]);
-    } else {
-        $templateParams["prodotti"] = $dbh->getProducts();
-    }
+    $templateParams["prodotti"] = $dbh->getProducts();
     $templateParams["titolo"] = "C&D Fragrances";
     $templateParams["nome"] = "fragrances-list.php";
     $templateParams["categorie"] = $dbh->getCategories();

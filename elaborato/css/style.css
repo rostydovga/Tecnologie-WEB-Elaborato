@@ -780,17 +780,34 @@ aside section>ul {
     object-fit: contain;
 }
 
-/*.dropdown ul li {
-    color: #e5345b;
-    /*max-height: 280px;
-    overflow-y: auto;
-}*/
-
 .dropdown-menu[data-bs-popper] {
-    max-height: 280px;
-    overflow-y: auto
+	top: 100%;
+	left: -275px;
+	margin-top: .125rem;
+}
+
+.dropdown-menu {
+	margin: -0.125rem 0 0 0;
+	left: -275px;
 }
 
 .dropdown-menu {
     margin: -0.125rem -50px 0;
+}
+
+.container>article>section>div>p {
+    font-size: 20px;
+}
+
+.container>article>header>div>img {
+    filter: grayscale(100%);
+    height: 400px;
+    width: auto;
+}
+
+.offcanvas {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
 }

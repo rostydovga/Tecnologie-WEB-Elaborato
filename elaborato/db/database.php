@@ -101,18 +101,8 @@
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ssss",$nome, $cognome, $email, $password);
             $stmt->execute();
-            
-            //$result = $stmt->get_result();
         }
 
-        public function orderProducts($attributo) {
-            $query = "SELECT IdProdotto, Nome, Prezzo, Immagine FROM prodotti ORDER BY ".$attributo." DESC";
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
 
         /* FUNZIONI CARRELLO */
 

@@ -21,7 +21,6 @@
     <script src="script/jquery_functions.js"></script>
     <script src="script/registrationjs.js"></script>
     <script src="script/login-home.js"></script>
-    <script src="script/filter-products.js"></script>
 </head>
 
 <body>
@@ -109,7 +108,13 @@
                     <button class="btn position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-bell"></i>
                         <!--pin rosso sulla notifica-->
+                        <?php 
+                        if(isset($_SESSION["IdUtente"])): 
+                            $notifiche = $centronotifiche->getMessages($_SESSION["IdUtente"]); 
+                            if(count($notifiche)) : 
+                        ?>
                         <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                        <?php endif; endif;?>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <?php
@@ -148,7 +153,7 @@
                         <a class="nav-link" href="fragrances.php">Fragrances</a>
                     </li>
                     <li class="nav-item px-1 py-2 border-0">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" href="about-us.php">About us</a>
                     </li>
                 </ul>
             </div>
@@ -162,7 +167,7 @@
             if(isset($templateParams["nome"])){
                 require($templateParams["nome"]);
             }   
-            ?>
+        ?>
     </main>
 
     <!--Footer-->

@@ -26,43 +26,16 @@ $(document).ready(function() {
             "width": "75%",
             "opacity":"0.5"
         });
-        
         var img_card = $(this).find("img");
-        /*$(img_card).animate({
-            width : "+=5%",
-            height : "+=5%"
-        });*/
-
-
-      },
-      function() {
+    },
+    function() {
         var hr_card = $(this).find("hr");
         $(hr_card).css({
             "width": "25%",
             "opacity": "0.3"
         });
-
         var img_card = $(this).find("img");
-        /*$(img_card).animate({
-            width : "-=5%",
-            height : "-=5%"
-        });*/
-      });
-
-
-      /*Fragrance.html*/
-      //Se vien scelto il checkbox della candela non permettere il click sui check Gender
-    /*
-      $("aside section #candela").click(function(){
-        console.log("Click check");
-        gestisi_Gender($(this).prop("checked"));
     });
-
-    function gestisi_Gender(manage){
-        $("aside section #uomo,#donna,#unisex").prop("checked",manage);
-        $("aside section #uomo,#donna,#unisex").attr("disabled", manage);
-    }
-    */
 
     $(".offcanvas .offcanvas-body .card input").on("change", function() {
         $.ajax({
