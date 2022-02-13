@@ -25,6 +25,9 @@
         $templateParams["titolo"] = "C&D Fragrances";
         $templateParams["nome"] = "fragrances-list.php";
         $dbh->deleteProduct($idprodotto);
+
+        $centronotifiche->addMessage($_SESSION["IdUtente"], "product (id: ".$idprodotto.") deleted successfully.");
+
         $templateParams["prodotti"] = $dbh->getProducts();
     }
     

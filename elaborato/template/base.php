@@ -22,7 +22,6 @@
     <script src="script/registrationjs.js"></script>
     <script src="script/login-home.js"></script>
     <script src="script/filter-products.js"></script>
-    <script src="script/confirmation-order.js"></script>
 </head>
 
 <body>
@@ -53,11 +52,12 @@
                                     <hr/>
                                     <div class="col col-6">
                                         <div class="input-group">
-                                            <input type="number" class="qty-input form-control" maxlength="2" max="<?php echo $prodotto["QuantMax"]; ?>" min="0" value="<?php echo $prodotto["QuantNelCarrello"]; ?>">
+                                            <input type="number" class="qty-input form-control" max="<?php echo $prodotto["QuantMax"]; ?>" min="0" value="<?php echo $prodotto["QuantNelCarrello"]; ?>">
                                         </div>
                                     </div>
                                     <div class="col col-6">
                                         <p>Price: <?php echo $prodotto["Prezzo"]; ?>€</p>
+                                        <p class="d-none"><?php echo $prodotto["IdProdotto"]; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -107,20 +107,21 @@
             <div class="order-lg-2 nav-btns m-0">
                 <div class="dropdown">
                     <button class="btn position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-bell"></i>
-                <!--pin rosso sulla notifica-->
-                <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
-              </button>
+                        <i class="bi bi-bell"></i>
+                        <!--pin rosso sulla notifica-->
+                        <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
+                    </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <?php
+                        if(isset($_SESSION["IdUtente"])): 
+                            $notifiche = $centronotifiche->getMessages($_SESSION["IdUtente"]); 
+                            if(count($notifiche)) :
+                                foreach($notifiche as $notifica):
+                        ?>
                         <li>
-                            <p class="dropdown-item">Notifica-1</p>
+                            <p class="dropdown-item">(<?php echo $notifica["DataOraNotifica"]; ?>) <?php echo $notifica["DescrizioneNotifica"]; ?></p>
                         </li>
-                        <li>
-                            <p class="dropdown-item">Notifica-2</p>
-                        </li>
-                        <li>
-                            <p class="dropdown-item">Notifica-3</p>
-                        </li>
+                        <?php endforeach; endif; endif; ?>
                     </ul>
 
                 </div>
@@ -128,8 +129,8 @@
                     <i class="bi bi-person"></i>
                     <span class="position-relative top-10 start-15  translate-middle badge bg-primary"></span>
                 </a>
-                <?php if($templateParams["isAdmin"]==0): ?>
-                <button type="button" class="btn position-relative" <?php echo $templateParams["cartUsability"] ?>  data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
+                <?php if($templateParams["isAdmin"] == 0): ?>
+                <button type="button" class="btn position-relative" <?php echo $templateParams["cartUsability"]; ?>  data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
                 <i class="bi bi-cart"></i>
                 <?php if(!$carrello->isEmpty()): ?>
                 <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>

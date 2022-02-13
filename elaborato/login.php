@@ -1,9 +1,12 @@
 <?php
     require_once("bootstrap.php");
 
+    if(isset($_POST["action"])){
+        logOutUser();
+        $templateParams["isAdmin"] = 0;
+    }
     
-    
-    if(isset($_POST["email"]) && isset($_POST["password"])){ //&& isset($_POST["cb1"])
+    if(isset($_POST["email"]) && isset($_POST["password"])){
         //Controllo se esiste sul db
         $login_result = $dbh->checkLogin($_POST["email"],$_POST["password"]);
 
@@ -29,6 +32,7 @@
             $dbh->createCartForUser($_SESSION["IdUtente"], $_SESSION["Ordine"]); //si crea carrello nel db
         }
 
+        $templateParams["storico"] = $dbh->getOrders($_SESSION["IdUtente"]);
         $templateParams["titolo"] = "C&D Login";
         $templateParams["nome"] = "login-home.php";
 

@@ -39,7 +39,7 @@
                         <button href="" name="deleteproduct" class="btn btn-block bg-dark " type="submit">Delete Products</button>
                     </div>
                     <?php else: ?>
-                        <button class="btn bg-dark"  name="aggiungialcarrello" type="submit">Add to Cart <i class="bi bi-cart"></i></button>
+                        <button class="btn bg-dark" name="aggiungialcarrello" type="submit">Add to Cart <i class="bi bi-cart"></i></button>
                     <?php endif; ?>  
                 </div>
                 </form>

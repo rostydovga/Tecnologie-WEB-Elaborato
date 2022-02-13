@@ -64,15 +64,15 @@ $(document).ready(function() {
     }
     */
 
-    /*$(".offcanvas .offcanvas-body .card input").on("change", function() {
+    $(".offcanvas .offcanvas-body .card input").on("change", function() {
         $.ajax({
             method: "POST",
+            url: "/elaborato/script/api-cart.php",
             data: {
-                QuantNelCarrello: $(this).val()
-            },
-            success: alert("ciaa")
+                QuantNelCarrello: $(this).val(),
+                IdProdotto: $(this).parentsUntil(".card-body").find(".d-none").text()
+            }
         });
-
-    });*/
+    });
 
 });

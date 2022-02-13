@@ -5,15 +5,17 @@
     $username = "root";
     $password = "";
     $dbname = "cddb";
-    $port = 3306;
+    $port = 3307;
 
     //includere file per connessione DB e altri
     require_once("db/database.php");
     require_once("utils/functions.php");
     require_once("cart.php");
+    require_once("notification-center.php");
     //istanziare helper per DB
     $dbh = new DatabaseHelper($servername, $username, $password, $dbname, $port);
     $carrello = new Carrello($dbh);
+    $centronotifiche = new CentroNotifiche($dbh);
 
     if(isUserLoggedIn()){
         if(count($dbh->isAdmin($_SESSION["IdUtente"]))){

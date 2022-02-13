@@ -9,7 +9,7 @@
                     <h3>Payment card details</h3>
                 </div>
                 <div class="row my-4">
-                    <div class="card border-dark payment" id="credit-card">
+                    <div class="card border-dark payment">
                         <div class="card-body py-3 px-1 m-3">
                             <div class="row">
                                 <div class="col-4">

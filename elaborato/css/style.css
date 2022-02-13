@@ -779,3 +779,18 @@ aside section>ul {
     width: auto;
     object-fit: contain;
 }
+
+/*.dropdown ul li {
+    color: #e5345b;
+    /*max-height: 280px;
+    overflow-y: auto;
+}*/
+
+.dropdown-menu[data-bs-popper] {
+    max-height: 280px;
+    overflow-y: auto
+}
+
+.dropdown-menu {
+    margin: -0.125rem -50px 0;
+}

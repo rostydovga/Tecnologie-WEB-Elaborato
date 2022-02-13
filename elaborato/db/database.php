@@ -236,7 +236,6 @@
             $query = "UPDATE prodotti 
             SET Nome=?, Prezzo=?, KCategoria=?, Quantita=?, Ml=?, Descrizione=?, DataInserimento=CURDATE(), Sesso=?, Immagine=?
             WHERE IdProdotto=?";
-
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sdiiisssi",$nome,$prezzo,$idcategoria[0]["IdCategoria"],$quantita,$ml,$descrizione,$sesso,$immagine,$idProdotto);
             $stmt->execute();
@@ -249,16 +248,6 @@
             $stmt->execute();
         }
 
-        /*private function getCategoryNameById($id) {
-            $query = "SELECT Nome FROM categorie WHERE IdCategoria=?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } */
-
         public function addProduct($nome, $prezzo, $desc, $quantita, $ml, $sesso, $imm, $categoria) {
             $idcategoria = $this->getCategoryIdByName($categoria);
 
@@ -266,6 +255,70 @@
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sisiissi", $nome, $prezzo, $desc, $quantita, $ml, $sesso, $imm, $idcategoria[0]["IdCategoria"]);
             $stmt->execute();
+        }
+
+        public function setProductQuantityInCart($idcliente, $idprodotto, $idordine, $quantita) {
+            if($quantita > 0){
+                $query = "UPDATE contiene_prodotti SET Quantita=? WHERE KProdotto=? AND KCliente=? AND KOrdine=?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("iiii", $quantita, $idprodotto, $idcliente, $idordine);
+            } elseif($quantita == 0) {  //se arrivo a 0 lo elimino definitivamente
+                $query = "DELETE FROM contiene_prodotti WHERE KProdotto=? AND KCliente=? AND KOrdine=?";
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("iii", $idprodotto, $idcliente, $idordine);
+            }
+            $stmt->execute();
+        }
+
+        public function getOrders($idutente) {
+            $query = "SELECT NumeroOrdine, ImportoTotale, DataOrdine, GROUP_CONCAT(Nome) AS Acquisti
+            FROM carrelli, contiene_prodotti, prodotti
+            WHERE IdCliente=KCliente AND NumeroOrdine=KOrdine AND KProdotto=IdProdotto AND DataOrdine IS NOT NULL AND IdCliente=?
+            GROUP BY NumeroOrdine
+            ORDER BY NumeroOrdine";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $idutente);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function checkProductsQuantity() {
+            $query = "SELECT IdProdotto, Nome, Quantita FROM prodotti WHERE Quantita < 10";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getAdminId() {
+            $query = "SELECT IdUtente FROM utenti WHERE Venditore=1";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        /* FUNZIONI NOTIFICHE */
+
+        public function addNotification($idutente, $desc) {
+            $query = "INSERT INTO notifiche (KUtente, DataOraNotifica, DescrizioneNotifica) VALUES (?, NOW(), ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("is", $idutente, $desc);
+            $stmt->execute();
+        }
+
+        public function getNotifications($idutente) {
+            $query = "SELECT IdNotifica, DataOraNotifica, DescrizioneNotifica FROM notifiche WHERE KUtente=? ORDER BY IdNotifica DESC";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("i", $idutente);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
         }
 
     }
