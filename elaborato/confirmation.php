@@ -28,6 +28,8 @@
         $templateParams["totale"] = $carrello->getSubtotal($_SESSION["IdUtente"], $_SESSION["Ordine"]);
     }
 
+    $templateParams["cartUsability"] = "disabled";
+
     require_once("template/base.php");
 
 ?>

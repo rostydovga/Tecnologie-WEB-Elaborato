@@ -22,6 +22,7 @@
     <script src="script/registrationjs.js"></script>
     <script src="script/login-home.js"></script>
     <script src="script/filter-products.js"></script>
+    <script src="script/confirmation-order.js"></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="offcanvas-body">
+                    <div class="offcanvas-body overflow-auto">
                         <?php if(isset($_SESSION["Ordine"]) && isset($_SESSION["IdUtente"])) :
                             foreach($carrello->getProducts($_SESSION["IdUtente"], $_SESSION["Ordine"]) as $prodotto): ?>
                             <div class="card">
@@ -83,8 +84,13 @@
                 </div>
             </div>
             <div class="row ">
-                <!--<button class="btn bg-dark " type="button">Check-out</button>-->
-                <a class="btn btn-block bg-dark" type="submit" href="confirmation.php">Check-out</a>
+            <?php if($carrello->isEmpty() && isUserLoggedIn()): ?>
+                <a class="btn btn-block bg-dark" type="submit" href="fragrances.php">Fragrances</a>
+            <?php elseif(!isUserLoggedIn()): ?>
+                <a class="btn btn-block bg-dark" type="submit" href="login.php">LogIn</a>
+            <?php else: ?>
+                <a class="btn btn-block bg-dark" id="checkout-button" type="submit" href="confirmation.php">Check-out</a>
+            <?php endif ?>
             </div>
         </footer>
         <!--</div>-->
@@ -122,12 +128,14 @@
                     <i class="bi bi-person"></i>
                     <span class="position-relative top-10 start-15  translate-middle badge bg-primary"></span>
                 </a>
-                <button type="button" class="btn position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
+                <?php if($templateParams["isAdmin"]==0): ?>
+                <button type="button" class="btn position-relative" <?php echo $templateParams["cartUsability"] ?>  data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart">
                 <i class="bi bi-cart"></i>
                 <?php if(!$carrello->isEmpty()): ?>
                 <span class="position-absolute top-0 start-0  translate-middle p-1 rounded-circle bg-primary"></span>
                 <?php endif; ?>
-            </button>
+                <?php endif; ?>
+                </button>
             </div>
             <!--Per la compressione della pagina-->
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">

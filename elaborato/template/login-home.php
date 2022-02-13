@@ -1,3 +1,4 @@
+
 <div class=" p-5 bg-image text-white rounded-2">
     <h2 class="display-2" >Welcome <?php echo $_SESSION["Nome"]; echo " ".$_SESSION["Cognome"]; ?></h2>
     <p>We are glad to see you here</p>
@@ -32,8 +33,31 @@
     <?php endif;  ?>
     <div class="row">
         <div class="mb-3 text-center">
-            <a href="index.php" class="btn btn-block bg-dark " id="logoutButton" type="submit"  >Logout</a>
+            <!--<button type="button" class="btn btn-block bg-dark " id="logoutButton" >Logout</button>-->
+            <button type="button" id="logoutButton" class="btn bg-dark" >
+                Logout
+            </button>
         </div>
     </div>
     
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Logout</h3>
+      </div>
+      <div class="modal-body">
+        Logout Successfully
+      </div>
+      <div class="modal-footer">
+        <a href="index.php" class="btn btn-primary bg-dark">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

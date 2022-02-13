@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row text-center my-4">
+    <div class="row text-center my-5">
         <h2>Complete your order</h2>
     </div>
     <form method="POST" action="#">
@@ -9,14 +9,14 @@
                     <h3>Payment card details</h3>
                 </div>
                 <div class="row my-4">
-                    <div class="card border-dark payment">
+                    <div class="card border-dark payment" id="credit-card">
                         <div class="card-body py-3 px-1 m-3">
                             <div class="row">
                                 <div class="col-4">
                                     <label for="numero">Card number :</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="numero" name="numerocarta" />
+                                    <input type="text" id="numero" name="numerocarta" required />
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -24,13 +24,13 @@
                                     <label for="scadenza">Expire date :</label>
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" id="scadenza" name="scadenza" />
+                                    <input type="text" id="scadenza" name="scadenza" required />
                                 </div>
                                 <div class="col-2 text-end">
                                     <label for="cvv">CVV :</label>
                                 </div>
                                 <div class="col-2">
-                                    <input type="text" id="cvv" name="cvv" />
+                                    <input type="text" id="cvv" name="cvv" required />
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -38,7 +38,7 @@
                                     <label for="proprietario">Holder name :</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="proprietario" name="proprietario" />
+                                    <input type="text" id="proprietario" name="proprietario" required />
                                 </div>
                             </div>
                         </div>
@@ -81,9 +81,9 @@
                     <div class="col-3">
                         <h4>Total:</h4>
                     </div>
-                    <div class="col-3 text-end">
+                    <div class="col-6 text-end">
                         <h4><?php echo $templateParams["totale"][0]["ImportoTotale"]; ?> €</h4>
-                        <button class="btn btn-dark m-0" type="submit">Confirm</button>
+                        <button class="btn btn-dark mt-3" id="confirmPaymentButton" type="submit">Confirm</button>
                     </div>
                 </div>
             </div>

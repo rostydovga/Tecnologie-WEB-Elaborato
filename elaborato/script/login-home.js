@@ -1,16 +1,14 @@
 $(document).ready(function() {
 
     $("#logoutButton").click(function() {
-
-        console.log("LogoutCliccato");
-        confirmation = false;
-        $.post("login.php", { "action": "logout" },
-            function(response) {
-                alert("Logout successfully");
-
-            });
-        console.log("FUori richiesta POST");
-
-    })
+        $.ajax({
+            type: "POST",
+            url: "/elaborato/script/api-logout.php",
+            data: { action: "logout" },
+            success: function(status) {
+                $("#modalLogout").modal("show");
+            }
+        });
+    });
 
 });

@@ -1,9 +1,7 @@
 <?php
     require_once("bootstrap.php");
 
-    if(isset($_POST["action"])){
-        logOutUser();
-    }
+    
     
     if(isset($_POST["email"]) && isset($_POST["password"])){ //&& isset($_POST["cb1"])
         //Controllo se esiste sul db

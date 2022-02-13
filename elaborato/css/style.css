@@ -175,7 +175,8 @@ ul {
 }
 
 
-/*
+/*Drop Down Menu*/
+
 .dropdown-menu[data-bs-popper] {
     top: 100%;
     left: -50px;
@@ -185,7 +186,6 @@ ul {
 .dropdown-menu {
     margin: -0.125rem -50px 0;
 }
-*/
 
 .toast {
     background-color: rgb(1, 1, 51);
@@ -572,7 +572,9 @@ aside section>ul {
     padding-right: 10%;
 }
 
-.offcanvas>footer button {
+.offcanvas>footer>.row:last-child>a,
+#checkout-button,
+.modal a.btn {
     width: 50%;
     margin: auto;
     border-radius: 30px;
@@ -583,7 +585,18 @@ aside section>ul {
     transition: 0.5s;
 }
 
-.offcanvas>footer button:hover {
+#confirmPaymentButton {
+    width: 90%;
+    margin: auto;
+    border-radius: 30px;
+    padding: 8px 10%;
+    text-transform: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+}
+
+.offcanvas>footer a:hover,
+#checkout-button:hover {
     background-color: var(--bg-color);
     width: 55%;
     transition: 0.5s;
